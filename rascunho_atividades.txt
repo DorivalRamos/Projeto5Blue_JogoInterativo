@@ -1,0 +1,58 @@
+Tema: Diário de um DEV
+variavel pagamento = 10
+variavel he = 2
+variavel cansaço
+alimento
+covid = randint(0,100) if 100 - covid, pula um dia
+if negativo perde um dia de trabalho
+
+Classe DEV(nome, estamina = 12, dinheiro = 10)
+	
+remotoPresencial()
+if home hestamina  = -6
+if presencial estamina = -8
+presencial +2 horas 
+
+he randint(0,10)
+0 => 7 não faz
+7 => 10 faz
+
+if aceita ou não
+
+horas trabalhos = 8
+Classe Descanso
+Sono()
+
+descanso curto estamina +6
+descanso longo estamina +8
+1 hora de sono = 1pto
+-2 alimento
+
+classe Doente
+alimento
+
+Classe trabalho()
+manha()
+if hora extra
+hora extra randomica
+
+alimentoMercado()
+3un = -5
+dinheiro = -2
+histamina = - 0.5
+almocoPresencial()
+
+Classe Status()
+retorna valores $ e estamina
+
+
+
+
+relogio()
+
+
+
+
+
+
+
