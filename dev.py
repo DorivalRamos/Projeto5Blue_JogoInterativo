@@ -21,3 +21,15 @@ class Dev:  # Criação da classe para personagem principal
     @statusEstamina.setter
     def statusEstaminaRE(self, estamina):
         self.__estamina -= estamina
+
+    @property
+    def statusDinheiro(self):
+        return self.__dinheiro
+
+    @statusDinheiro.setter
+    def statusDinheiroAD(self, dinheiro):
+        self.statusDinheiro += dinheiro
+
+    @statusDinheiro.setter
+    def statusDinheiroAD(self, dinheiro):
+        self.statusDinheiro -= dinheiro
