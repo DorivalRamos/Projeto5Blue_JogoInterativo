@@ -8,8 +8,8 @@ class Trabalho:
         self.__trabalho = trabalho
 
     def homeOffice(self):
-        Dev.statusDinheiroAD(10)
-        Dev.statusEstaminaRE(6)
+        Dev.statusDinheiroAD(dinheiro = 10)
+        Dev.statusEstaminaRE(estamina = 6)
 
     def presencial(self):
         Dev.statusDinheiroAD(10)

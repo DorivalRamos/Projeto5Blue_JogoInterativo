@@ -14,11 +14,11 @@ class Dev:  # Criação da classe para personagem principal
     def statusEstamina(self):
         return self.__estamina
 
-    @statusEstamina.setter
+    # @statusEstamina.setter
     def statusEstaminaAD(self, estamina):
         self.__estamina += estamina
 
-    @statusEstamina.setter
+    # @statusEstamina.setter
     def statusEstaminaRE(self, estamina):
         self.__estamina -= estamina
 
@@ -26,10 +26,10 @@ class Dev:  # Criação da classe para personagem principal
     def statusDinheiro(self):
         return self.__dinheiro
 
-    @statusDinheiro.setter
+    # @statusDinheiro.setter
     def statusDinheiroAD(self, dinheiro):
         self.statusDinheiro += dinheiro
 
-    @statusDinheiro.setter
-    def statusDinheiroRE(self, dinheiro):
+    # @statusDinheiro.setter
+    def statusDinheiroAD(self, dinheiro):
         self.statusDinheiro -= dinheiro
