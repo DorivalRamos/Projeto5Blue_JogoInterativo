@@ -31,5 +31,5 @@ class Dev:  # Criação da classe para personagem principal
         self.statusDinheiro += dinheiro
 
     @statusDinheiro.setter
-    def statusDinheiroAD(self, dinheiro):
+    def statusDinheiroRE(self, dinheiro):
         self.statusDinheiro -= dinheiro
