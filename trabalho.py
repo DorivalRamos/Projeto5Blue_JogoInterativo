@@ -3,16 +3,16 @@ class Trabalho:
         self.trabalho = trabalho
     
     def homeOffice(self, dinheiro, estamina):
-        self.dinheiro += 10
-        self.estamina -= 6
+        self.__dinheiro += 10 #protegendo o atributo
+        self.__estamina -= 6
 
     def presencial(self, dinheiro, estamina):
-        self.dinheiro += 10
-        self.estamina -= 8
+        self.__dinheiro += 10
+        self.__estamina -= 8
 
     def aleatoria(self, dinheiro, estamina):
-        self.dinheiro = dinheiro
-        self.estamina = estamina
+        self.__dinheiro = dinheiro
+        self.__estamina = estamina
         from random import choice
         eventos = ('acidente de carro', 'dor de barriga', 'happy hour', 'dor de cabeça', 'quebrou a perna')
         perde_dia = choice(eventos)
