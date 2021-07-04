@@ -1,35 +1,30 @@
 from dev import Dev
 from trabalho import Trabalho
 from status import Status
-
+from os import system
+from time import sleep
 if __name__ == '__main__':
     dia = 1
-    #dev = Dev()
-    #trabalho = Trabalho()
-    status = Status()
-    alimentacao = False
-    dev = Dev(input('Informe seu nome: '))
-    print('''
-        {dev}, vamos conhecer a rotina de um Dev
+    dev = Dev(input('Informe o nome do seu Personagem: '))
+    print(f'''  
+        {'-='*20}
+        {dev}, Vamos conhecer a sua rotina como um Dev
+        {'-='*20}
         ''')
+    sleep(5)
+    system('cls')
     while True:
-        print('===============================================================')
-        print(f'Vamos começar nossa jornada do dia-a-dia de um dev. Dia {dia}')   
-        print(f'''Você começa seu dia com: 
-        {status}
-        ''')  
-        trabalho = input('Você deseja trabalhar hoje Home Office ou Presencial? [ 1 - Home Office / 2 - Presencial ] ' )
-           
-        if trabalho == '1':
-            Trabalho.homeOffice()
-            print('Você escolheu Home Office')
-            print('Seu satus atual é: {Status}')
-            break
-        elif trabalho == '2':
-            Trabalho.presencial()
-            print('Você escolheu Presencial')
-            print('Seu satus atual é: {Status}')
-            break
-            
+        print(f'''
+                                    Dia {dia}
+                                'Você começa seu dia com: 
+                                    {Status()}
+        ''')
+        sleep(3)
 
-        
+        trabalho = Trabalho(input(
+
+            '''
+            Após Você levantar e fazer sua primeira refeição,
+            você deverá escolher qual forma de trabalho?
+
+            Você deseja trabalhar hoje em Home Office ou Presencial? [ 1 - Home Office / 2 - Presencial ] '''))

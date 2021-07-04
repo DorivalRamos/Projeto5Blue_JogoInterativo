@@ -1,4 +1,4 @@
-
+from status import Status
 from dev import Dev
 
 
@@ -7,11 +7,21 @@ class Trabalho:
     def __init__(self, trabalho):
         self.__trabalho = trabalho
 
-    def homeOffice(self):
-        Dev.statusDinheiroAD(dinheiro = 10)
-        Dev.statusEstaminaRE(estamina = 6)
+        if self.__trabalho == '1':
+            Trabalho.homeOffice()
+            return f''' Você escolheu Home Office
+                        Seu Status atual é: {Status}'''
 
-    def presencial(self):
+        elif self.__trabalho == '2':
+            Trabalho.presencial()
+            return f''' Você escolheu presencial
+                        Seu Status atual é: {Status}'''
+
+    def homeOffice():
+        Dev.statusDinheiroAD(dinheiro=10)
+        Dev.statusEstaminaRE(estamina=6)
+
+    def presencial():
         Dev.statusDinheiroAD(10)
         Dev.statusEstaminaRE(8)
 
