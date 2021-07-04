@@ -21,10 +21,18 @@ if __name__ == '__main__':
         ''')
         sleep(3)
 
-        trabalho = Trabalho(input(
-
-            '''
+        trabalho = (input('''
             Após Você levantar e fazer sua primeira refeição,
             você deverá escolher qual forma de trabalho?
 
             Você deseja trabalhar hoje em Home Office ou Presencial? [ 1 - Home Office / 2 - Presencial ] '''))
+
+        if trabalho == '1':
+            trabalho.homeOffice(trabalho)
+            print(f''' Você escolheu Home Office
+                        Seu Status atual é: {Status}''')
+
+        elif trabalho == '2':
+            trabalho.presencial()
+            print(f''' Você escolheu presencial
+                        Seu Status atual é: {Status}''')
