@@ -8,7 +8,17 @@ class Trabalho:
 
     def __init__(self, trabalho):
         self.__trabalho = trabalho
-        self.escolherTrabalho()
+
+    if self.__trabalho == '1':  # homeoffice
+            self.statusEstaminaRE(6)
+            self.statusDinheiroAD(10)
+            print(f''' Você escolheu Home Office
+                        Seu Status atual é: {Status}''')
+
+        elif trabalho == '2':
+            trabalho.presencial()
+            print(f''' Você escolheu presencial
+                        Seu Status atual é: {Status}''')
 
     @property
     def statusEstamina(self):
