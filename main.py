@@ -10,9 +10,9 @@ if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só ro
     relogio = Relogio()
     personagem = Personagem(input("Qual o nome do seu personagem: "))
     cafe_da_manha = False
-    
+
     while True:
-        #personagem.diaAdd(1)
+        # personagem.diaAdd(1)
         print(f'''  
                     {'-='*30}
                     {personagem.nome}
@@ -25,14 +25,15 @@ if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só ro
                     3 - Supermercado
                     4 - Presencial
                     5 - Home Office
-                    6 - Balada
-                    7 - Recuperar energia
+                    6 - Estudar
+                    7 - Relaxar
+                    8 - Recuperar energia
                     99 - Sair do jogo
                     {'-='*30}''')
 
         opcao = input("Escolha sua ação:")
         sleep(2)
-        #system('cls')
+        # system('cls')
         if(opcao == "1"):
             if(personagem.alimento > 0):
                 personagem.alimentoRE(1)
@@ -65,7 +66,6 @@ if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só ro
             else:
                 print("Você não tem dinheiro suficiente.")
                 sleep(2)
-
         elif(opcao == "4"):
             if personagem.estamina >= 10:
 
@@ -73,12 +73,14 @@ if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só ro
                 personagem.estaminaRE(10)
                 personagem.dinheiroAD(10)
                 personagem.aleatorios()
-                relogio.avancaTempo(10)
+                personagem.dormir()
                 personagem.diaAdd(1)
+                relogio.avancaTempo(10)
                 relogio = Relogio()
-                
+
             else:
-                print('Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                print(
+                    'Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
                 continue
         elif(opcao == "5"):
             if personagem.estamina >= 8:
@@ -91,13 +93,23 @@ if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só ro
                 personagem.diaAdd(1)
                 relogio = Relogio()
             else:
-                 print('Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
-                 continue
-        elif (opcao == "7"):
-            #personagem.dormir()
+                print(
+                    'Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                continue
+        elif(opcao == "7"):
+            if personagem.estamina >= 3 and personagem.estamina >= 3:
+                personagem.estaminaRE(3)
+                personagem.dinheiroRE(3)
+
+                print(
+                    'Você tirou 3 horas do seu dia para poder fazer algo que gosta, seja sair, ler um livro ou ter um hobbie')
+        elif (opcao == "8"):
+            # personagem.dormir()
             personagem.estaminaAD(10)
             personagem.dinheiroRE(1)
-            print('Depois de uma latinha de Red Bull você já está pronto para começar sua jornada.')
+            personagem.dormir()
+            print(
+                'Depois de uma latinha de Red Bull você já está pronto para começar sua jornada.')
             # personagem.diaAdd(1)
             relogio = Relogio()
             print("-=-=-")
