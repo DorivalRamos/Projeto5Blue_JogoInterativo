@@ -2,7 +2,7 @@ from status import Status
 
 
 class Personagem(Status):
-    def __init__(self, nome, dinheiro=5, alimento=10, estamina=12):
+    def __init__(self, nome, dinheiro=5, alimento=10, estamina=5):
         super().__init__(dinheiro, alimento, estamina)
         self.__nome = nome
       
@@ -69,6 +69,7 @@ class Personagem(Status):
                     self.dinheiro -= 5
                     self.estamina -= 2
                     print(f'''Você exagerou... Chegou tarde em casa e não vai conseguir dormir o número suficiente de horas para recuperar suas energias.''')
+                    sleep(3)
                 else:
                     print(f'Obrigado... fica para uma próxima vez...')
             elif perde_dia == 'dor de cabeça':
