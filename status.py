@@ -1,15 +1,39 @@
 class Status:
-    def __init__(self, dinheiro=10, estamina=12, alimento=3):
+    def __init__(self, dinheiro, estamina, alimento, dia = 1):
         self.__dinheiro = dinheiro  # protegendo o atributo
         self.__estamina = estamina
         self.__alimento = alimento
-        # return f'''
-        # Estamina = {estamina}
-        # Saldo = $ {dinheiro}'''
+        self.__dia = dia
+            
 
-    def __str__(self):
-        return f'''
-                     Dinheriro: {self.__dinheiro}
-                     Estamina:  {self.__estamina}
-                     Alimentos: {self.__alimento}
-                        '''
+    @property
+    def dinheiro(self):
+        return self.__dinheiro
+
+    @property
+    def estamina(self):
+        return self.__estamina
+
+    @property
+    def alimento(self):
+        return self.__alimento
+
+    @estamina.setter
+    def estamina(self, valor):
+        self.__estamina = valor
+
+    @dinheiro.setter
+    def dinheiro(self, valor):
+        self.__dinheiro = valor
+
+    @alimento.setter
+    def alimento(self, valor):
+        self.__alimento = valor
+
+    @property
+    def dia(self):
+        return self.__dia
+
+    @dia.setter
+    def dia(self, valor):
+        self.__dia = valor

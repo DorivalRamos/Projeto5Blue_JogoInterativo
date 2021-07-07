@@ -1,28 +1,108 @@
-from dev import Dev
-from trabalho import Trabalho
-from status import Status
-from os import system
+from relogio import Relogio
+from personagem import Personagem
+from random import choice
+from random import randint
 from time import sleep
-if __name__ == '__main__':
-    dia = 1
-    dev = Dev(input('Informe o nome do seu Personagem: '))
-    print(f'''  
-        {'-='*20}
-        {dev}, Vamos conhecer a sua rotina como um Dev
-        {'-='*20}
-        ''')
-    sleep(5)
+from os import system
+if(__name__ == "__main__"):  # Pesquisar significado desse if #o programa só roda se tiver na mais
     system('cls')
+    #dia = 1
+    relogio = Relogio()
+    personagem = Personagem(input("Qual o nome do seu personagem: "))
+    cafe_da_manha = False
+    
     while True:
-        print(f'''
-                                    Dia {dia}
-                                'Você começa seu dia com: 
-                                    {Status()}
-        ''')
-        sleep(3)
+        #personagem.diaAdd(1)
+        print(f'''  
+                    {'-='*30}
+                    {personagem.nome}
+                    São {(relogio)} do dia {(personagem.dia)}. Já é hora de se arrumar para o trabalho.
+                            {personagem}
+                    
+                    O que fazer:
+                    1 - Fazer café da manhã
+                    2 - Pedir café da manhã
+                    3 - Supermercado
+                    4 - Presencial
+                    5 - Home Office
+                    6 - Balada
+                    7 - Recuperar energia
+                    99 - Sair do jogo
+                    {'-='*30}''')
 
-        trabalho = Trabalho(input('''
-            Após Você levantar e fazer sua primeira refeição,
-            você deverá escolher qual forma de trabalho?
+        opcao = input("Escolha sua ação:")
+        sleep(2)
+        #system('cls')
+        if(opcao == "1"):
+            if(personagem.alimento > 0):
+                personagem.alimentoRE(1)
+                cafe_da_manha = True
+                relogio.avancaTempo(20)
+            else:
+                print("Não há comida em casa.")
+                sleep(2)
+            relogio.avancaTempo(15)
+        elif(opcao == "2"):
+            if(personagem.dinheiro >= 3):
+                personagem.dinheiroRE(3)
+                cafe_da_manha = True
+            else:
+                print(
+                    "O café da manhã custa 3 unidades de dinheiro, você não tem dinheiro suficiente.")
+                sleep(2)
+            relogio.avancaTempo(5)
+        elif(opcao == "3"):
+            if(personagem.dinheiro >= 5):
+                personagem.alimentoAD(3)
+                personagem.dinheiroRE(5)
+                relogio.avancaTempo(2)
+                print('''
+                Você foi ao supermercado
+                Alimento + 3
+                Dinheiro - 5     
+                     ''')
+                sleep(2)
+            else:
+                print("Você não tem dinheiro suficiente.")
+                sleep(2)
 
-            Você deseja trabalhar hoje em Home Office ou Presencial? [ 1 - Home Office / 2 - Presencial ] '''))
+        elif(opcao == "4"):
+            if personagem.estamina >= 10:
+
+                print('Você optou pelo trabalho presencial hoje')
+                personagem.estaminaRE(10)
+                personagem.dinheiroAD(10)
+                personagem.aleatorios()
+                relogio.avancaTempo(10)
+                personagem.diaAdd(1)
+                relogio = Relogio()
+                
+            else:
+                print('Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                continue
+        elif(opcao == "5"):
+            if personagem.estamina >= 8:
+
+                print("-=-=-")
+                print("Você optou por fazer Home Office hoje.")
+                personagem.estaminaRE(8)
+                personagem.dinheiroAD(10)
+                relogio.avancaTempo(10)
+                personagem.diaAdd(1)
+                relogio = Relogio()
+            else:
+                 print('Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                 continue
+        elif (opcao == "7"):
+            #personagem.dormir()
+            personagem.estaminaAD(10)
+            personagem.dinheiroRE(1)
+            print('Depois de uma latinha de Red Bull você já está pronto para começar sua jornada.')
+            # personagem.diaAdd(1)
+            relogio = Relogio()
+            print("-=-=-")
+        elif(opcao == "99"):
+            break
+        else:
+            print("Opção inválida!")
+            relogio.avancaTempo(5)
