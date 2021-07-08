@@ -1,20 +1,19 @@
 class Relogio():
-    def __init__(self):
-        self.horas = 6
-        self.minutos = 0
+    def __init__(self): #inicialização da classe relógio
+        self.horas = 6 # parâmetro pré-definido para o início do dia
+        self.minutos = 0 # parâmetro pré-definido para o início do dia
 
     
-    def __str__(self): # Pesquisar significado dessa função especifica.
+    def __str__(self): # Função para formatar a string que será utilizada no arquivo main
         return f"{self.horas:02d}:{self.minutos:02d}"
     
-    def avancaTempo(self, minutos):
+    def avancaTempo(self, minutos): #Método para avançar o tempo em minutos
         self.minutos += minutos
         while(self.minutos >= 60):
             self.minutos -= 60
             self.horas += 1
     
-    def atrasado(self):
-        return (self.horas > 7 or (self.horas == 7 and self.minutos > 0))
+
 
 
     
