@@ -128,16 +128,19 @@ if(__name__ == "__main__"):  # O programa só irá funcionar se estiver na main
                 sleep(4)
                 continue
         elif (opcao == "6"):
-            print("-=-=-")
-            print("Você optou por tirar o dia para estudos...")
-            print(f'[cyan]estudando...')
-            for i in tqdm(range(900)):
-                sleep(0.001)
-            sleep(2)
-            personagem.estaminaAD(5)
-            personagem.dinheiroRE(5)
-            relogio.avancaTempo(360)
-            relogio = Relogio()
+            if personagem.estamina >= 5 and personagem.dinheiro >= 5: # condicional de verificação para ver se o personagem tem dinheiro e energia
+                print("-=-=-")
+                print("Você optou por tirar o dia para estudos...")
+                print(f'[cyan]estudando...')
+                for i in tqdm(range(900)):
+                    sleep(0.001)
+                sleep(2)
+                personagem.estaminaAD(5) 
+                personagem.dinheiroRE(5)
+                relogio.avancaTempo(360)
+                relogio = Relogio()
+            else:
+                print('Você não possui dinheiro ou estamina para poder tirar o dia de estudos. Acesse a opção [7] para recarregar seus atributos.')
         elif (opcao == "7"):  # Caso o personagem esteja sem energias ele é obrigado a utilizar esta ação
             print(
                 f'[cyan]Depois de uma boa noite de sono você já está pronto para recomeçar sua jornada !!!')
