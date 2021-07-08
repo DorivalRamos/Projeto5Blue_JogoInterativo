@@ -1,9 +1,10 @@
-from status import Status
+from status import Status #Importação da Super classe
+from time import sleep
 
 
-class Personagem(Status):
-    def __init__(self, nome, dinheiro=5, alimento=10, estamina=12):
-        super().__init__(dinheiro, alimento, estamina)
+class Personagem(Status): # Classe com a Super classe
+    def __init__(self, nome, dinheiro=5, alimento=10, estamina=5): # Inicialização da classe com os atributos próprios dela e os que serão utilizados da Super
+        super().__init__(dinheiro, alimento, estamina) #inicialização da Super classe dentro da classe Personagem
         self.__nome = nome
       
     def __str__(self):  
@@ -15,7 +16,7 @@ class Personagem(Status):
 
                 '''
 
-    @property
+    @property #Properties e Setters dos atributos privados
     def nome(self):
         return self.__nome
 
@@ -43,17 +44,17 @@ class Personagem(Status):
     def diaAdd(self, valor):
         self.dia += valor
 
-    def aleatorios(self):
-        from random import randint, choice
-        aleatorio = randint(1, 10)
+    def aleatorios(self): #Método para eventos aleatórios ao jogador escolher trabalho presencial
+        from random import randint, choice #importação das bibliotecas a serem utilizadas no méto. Para fins didáticos colocamos dentro do método
+        aleatorio = randint(1, 10) #Variável para receber um número de 1 a 10 onde serão escolhidos os eventos
         if aleatorio > 7:
             eventos = ['acidente de carro', 'dor de barriga',
-                       'happy hour', 'dor de cabeça', 'quebrou a perna']
-            perde_dia = choice(eventos)
+                       'happy hour', 'dor de cabeça', 'quebrou a perna'] #lista de eventos
+            perde_dia = choice(eventos) #função choice para escolher o evento de forma aleatória
             if perde_dia == 'acidente de carro':
-                self.dinheiro -= 10
-                self.estamina += 10
-                self.diaAdd(2)
+                self.dinheiro -= 10 #método importado da super classe para debitar dinheiro
+                self.estamina += 10 # Método importado da super classe para adicionar energia, uma vez que o jogador não irá trabalahr
+                self.diaAdd(2) # método importada da super classe para adicionar dias
                 print(f'''Você sofreu um acidente de carro voltando do trabalho. Ficará impossibilitado de trabalhar por 2 dias.
                     Você não tinha seguro e perdeu 10 unidades de dinheiro''')
             elif perde_dia == 'dor de barriga':
@@ -69,6 +70,7 @@ class Personagem(Status):
                     self.dinheiro -= 5
                     self.estamina -= 2
                     print(f'''Você exagerou... Chegou tarde em casa e não vai conseguir dormir o número suficiente de horas para recuperar suas energias.''')
+                    sleep(3)
                 else:
                     print(f'Obrigado... fica para uma próxima vez...')
             elif perde_dia == 'dor de cabeça':
