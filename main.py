@@ -1,23 +1,26 @@
-from status import Status # Importação da Super classe
-from relogio import Relogio # Importação de classe
+from status import Status  # Importação da Super classe
+from relogio import Relogio  # Importação de classe
 from personagem import Personagem
-from time import sleep # Biblioteca utilizada para simular tempo decorrido para se executar a ação escolhida
-from os import system # Biblioteca utilizada para limpar a tela
-from tqdm import tqdm # Biblioteca utilizada para a barra de progresso
-from rich import print # Biblioteca para estilizar os prints
-import pygame # Biblioteca utilizada para executar áudio
-pygame.mixer.init() # Função para iniciar a aplicação que executa o áudio
-pygame.mixer.music.load("musica.mp3") # carregamento do arquivo mp3
-pygame.mixer.music.play() # Função importada da biblioteca Pygame para tocar música de fundo do jogo
+# Biblioteca utilizada para simular tempo decorrido para se executar a ação escolhida
+from time import sleep
+from os import system  # Biblioteca utilizada para limpar a tela
+from tqdm import tqdm  # Biblioteca utilizada para a barra de progresso
+from rich import print  # Biblioteca para estilizar os prints
+import pygame  # Biblioteca utilizada para executar áudio
+pygame.mixer.init()  # Função para iniciar a aplicação que executa o áudio
+pygame.mixer.music.load("musica.mp3")  # carregamento do arquivo mp3
+# Função importada da biblioteca Pygame para tocar música de fundo do jogo
+pygame.mixer.music.play()
 
-if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
-    system('cls') # Função de limpeza da tela
-    relogio = Relogio() #Instanciação do objeto Relógio
-    personagem = Personagem(input("Qual o nome do seu personagem: ")) #Instanciação do objeto personagem com input 
+if(__name__ == "__main__"):  # O programa só irá funcionar se estiver na main
+    system('cls')  # Função de limpeza da tela
+    relogio = Relogio()  # Instanciação do objeto Relógio
+    # Instanciação do objeto personagem com input
+    personagem = Personagem(input("Qual o nome do seu personagem: "))
     cafe_da_manha = False
-    
-    while True: #Laço de repetição para as ações do personagem
-        #Print com menu de ações
+
+    while True:  # Laço de repetição para as ações do personagem
+        # Print com menu de ações
         print(f'''  
                     {'-='*30}
                     {personagem.nome}
@@ -31,7 +34,7 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
                     4 - Presencial
                     5 - Home Office
                     6 - Estudar
-                    7 - Recuperar energia
+                    7 - Dormir
                     99 - Sair do jogo
                     {'-='*30}''')
 
@@ -41,12 +44,13 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
         if(opcao == "1"):
             if(personagem.alimento > 0):
                 print(f'[cyan]preparando café')
-                for i in tqdm(range(150)): # função para exibir barra de progresso decorativa
+                for i in tqdm(range(150)):  # função para exibir barra de progresso decorativa
                     sleep(0.001)
-                print()    
+                print()
                 print('Agora que você já tomou café, vamos para o próximo passo: ')
                 sleep(4)
-                personagem.alimentoRE(3) #Utilização da classe para debitar valores
+                # Utilização da classe para debitar valores
+                personagem.alimentoRE(3)
                 cafe_da_manha = True
                 relogio.avancaTempo(20)
             else:
@@ -58,7 +62,7 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
                 print(f'[cyan]pedindo café por aplicativo...Guilherme')
                 for i in tqdm(range(90)):
                     sleep(0.001)
-                print()    
+                print()
                 print('Agora que você já tomou café, vamos para o próximo passo: ')
                 sleep(4)
                 personagem.dinheiroRE(3)
@@ -95,13 +99,13 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
                     sleep(0.001)
                 personagem.estaminaRE(10)
                 personagem.dinheiroAD(10)
-                personagem.aleatorios() # Função que "chama" a possibilidade de ocorrer um evento aleatório
-                relogio.avancaTempo(10)
-                personagem.diaAdd(1)
-                relogio = Relogio()
-                
+                # Função que "chama" a possibilidade de ocorrer um evento aleatório
+                personagem.aleatorios()
+                relogio.avancaTempo(600)
+
             else:
-                print('[red]Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                print(
+                    '[red]Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
                 sleep(5)
                 continue
         elif(opcao == "5"):
@@ -115,13 +119,14 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
                 sleep(2)
                 personagem.estaminaRE(8)
                 personagem.dinheiroAD(10)
-                relogio.avancaTempo(10)
-                personagem.diaAdd(1)
+                relogio.avancaTempo(480)
+                # personagem.diaAdd(1)
                 relogio = Relogio()
             else:
-                 print('[red]Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
-                 sleep(4)
-                 continue
+                print(
+                    '[red]Você não tem descansado bastante. Selecione a opção [7] para recuperar sua energia.')
+                sleep(4)
+                continue
         elif (opcao == "6"):
             print("-=-=-")
             print("Você optou por tirar o dia para estudos...")
@@ -129,21 +134,23 @@ if(__name__ == "__main__"): #O programa só irá funcionar se estiver na main
             for i in tqdm(range(900)):
                 sleep(0.001)
             sleep(2)
-            personagem.diaAdd(1)
             personagem.estaminaAD(5)
             personagem.dinheiroRE(5)
+            relogio.avancaTempo(360)
             relogio = Relogio()
-        elif (opcao == "7"): # Caso o personagem esteja sem energias ele é obrigado a utilizar esta ação
-            print(f'[cyan]renovando as energias !!!')
+        elif (opcao == "7"):  # Caso o personagem esteja sem energias ele é obrigado a utilizar esta ação
+            print(
+                f'[cyan]Depois de uma boa noite de sono você já está pronto para recomeçar sua jornada !!!')
             for i in tqdm(range(900)):
                 sleep(0.001)
             sleep(2)
             personagem.estaminaAD(10)
             personagem.dinheiroRE(1)
-            print('Depois de uma latinha de Red Bull você já está pronto para começar sua jornada.')
+            personagem.diaAdd(1)
+            print(f'[cyan]dormindo !!!')
             relogio = Relogio()
             print("-=-=-")
-        elif(opcao == "99"): #opção de encerrar o programa
+        elif(opcao == "99"):  # opção de encerrar o programa
             break
         else:
             print("Opção inválida!")
