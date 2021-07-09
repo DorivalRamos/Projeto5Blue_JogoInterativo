@@ -12,6 +12,6 @@
 
 * <a href="https://github.com/mattosoguilherme" target="_blank"> <img src="https://www.vectorlogo.zone/logos/github/github-tile.svg" alt="spring" width="40" height="40"/> </a>  <a href="https://www.linkedin.com/in/guilherme-mattoso-4b654420b/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="spring" width="40" height="40"/> </a>   [Guilherme Mattoso](https://github.com/mattosoguilherme)
   
-* <a href="https://github.com/prribeiro1" target="_blank"> <img src="https://www.vectorlogo.zone/logos/github/github-tile.svg" alt="spring" width="40" height="40"/> </a> [Paulo Ricardo](https://github.com/prribeiro1)
+* <a href="https://github.com/prribeiro1" target="_blank"> <img src="https://www.vectorlogo.zone/logos/github/github-tile.svg" alt="spring" width="40" height="40"/> </a>  <a href="https://www.linkedin.com/in/paulo-ricardo-de-menezes-ribeiro-36797b216/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="spring" width="40" height="40"/> </a> [Paulo Ricardo](https://github.com/prribeiro1)
   
 
